@@ -43,3 +43,44 @@ $ git push origin master
 Für zukünftige lässt sich der Befehl abkürzen das nur noch git push benötigt wird:   
 $ git push -u origin master 
 
+Neue branches erstellen funktioniert auch.  
+So erstellt man neue Branhes wenn man änderungen vornehmen will geonsdern von der production so bspw. eine staging branch oder dev branch  
+Dazu lassen sich explizit neue Branches erstellen via:  
+$ git checkout -b NAME der branch
+
+sobald diese erstellt wurde kann man sich anschauen welche branches existieren und in welcher branch man sich aktuell befindet:  
+$ git branch
+
+Änderungen in der einen Branch sind it der anderen branch zu vergleichen über:  
+$ git diff NAME
+
+Möchte man verkürzt eine Änderung committen geht es auch ohne den add befehl und nur über commit:  
+$ git commit -am 'UPDATE TITEL'
+
+Standartäßig erstellt man wenn man seine Änderungen imm anderen branch fertig hat einen push auf die branch vor,  
+Wenn man allerdings seine abseitige branch updaten möchte mit andererer Änderungen in der main branch,  
+muss man seine branch mit den updates der main branch erstmal up to date führen:  
+$ git merge BEZUGSBRANCH
+
+-> Achtung es führt erstmal zu einem Konflikt, dieser ist einfach zu beheben mit cmd + shift k lassen sich die lines löschen die man nicht will,  
+oder bspw. in vs code mit buttons die schon zur verfügung stehen, danach erneut committen  
+
+Committete changes können nach dem commit aufgehoben werden, der commit wird resettet:  
+$ git commit reset
+
+Es lässt sich über die letzten commmits Übersicht fliegen mit dem Befehl:  
+$ git log
+
+Mit dem Hash eines commits lässt sich direkt zu einer stagings der letzten commits fliegen:  
+$ git reset HASH
+
+Wenn man aber die changes voll rückgängig machen möchte und löschen will:  
+$ git reset --hard HASH
+
+
+## Forking
+
+Wenn man forkt, kann man ein beliebiges repository nehmen, und auf fork klicken.  
+Dadurch dupliziert man das repository in ein eigenes, und kann somit den inhalt auf die eigene maschine pullen.  
+Änderungen durchführen committen und testen und final dann auch pushen. Sobald man ein Ergebnis erzielt hat und  
+es in das Ursprungs repository zuführen möchte, isst ein pull request an den owner des Ursprungsrepos notwendig.
